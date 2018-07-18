@@ -3,7 +3,7 @@ import React from 'react'
 const LogField = (props) => {
     return (
         <div>
-            <div>Command History</div>
+            <div>Input History</div>
             <textarea
                 readOnly
                 className='textArea'
