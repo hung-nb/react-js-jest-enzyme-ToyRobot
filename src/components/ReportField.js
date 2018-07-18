@@ -5,6 +5,8 @@ const ReportField = (props) => {
         <div>
             <div>Output Report</div>
             <input
+                className='input'
+                readOnly
                 type="text"
                 value={props.value}>
             </input>

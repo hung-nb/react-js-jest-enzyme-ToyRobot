@@ -111,18 +111,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <InputField
-          onChange={this._handleInputChange.bind(this)}
-          onKeyPress={this._handleKeyPress.bind(this)}
-          value={this.state.command}/>
-        <br />
-        <br />
-        <ReportField
-          value={this.state.report}/>
-        <br />
-        <br />
-        <LogField
-          value={this.state.log}/>
+        <div className='mainArea'>
+          <InputField
+            onChange={this._handleInputChange.bind(this)}
+            onKeyPress={this._handleKeyPress.bind(this)}
+            value={this.state.command}/>
+          <br />
+          <br />
+          <ReportField
+            value={this.state.report}/>
+          <br />
+          <br />
+        </div>
+        <div className='logArea'>
+          <LogField
+            value={this.state.log}/>
+        </div>
       </div>
     );
   }

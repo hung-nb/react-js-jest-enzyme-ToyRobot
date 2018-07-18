@@ -5,6 +5,8 @@ const LogField = (props) => {
         <div>
             <div>Command History</div>
             <textarea
+                readOnly
+                className='textArea'
                 type="text"
                 value = {props.value}>
             </textarea>

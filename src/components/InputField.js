@@ -4,7 +4,8 @@ const InputField = (props) => {
     return (
         <div>
             <div>Input Commands</div>
-            <input 
+            <input
+                className="input"
                 type="text"
                 placeholder = "Enter a command:"
                 onChange = {props.onChange}

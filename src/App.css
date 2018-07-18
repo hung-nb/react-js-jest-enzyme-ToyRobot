@@ -1,28 +1,40 @@
+/* Flex area */
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  background: #eee;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 20px auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.mainArea {
+  flex: 1;
+  margin: 15px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.logArea {
+  flex: 1;
+  margin: 15px;
 }
 
-.App-title {
-  font-size: 1.5em;
+/* Common */
+.input {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px 0;
+  box-sizing: border-box;
+  font-size: 15px;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.textArea {
+  display: block;
+  width: 100%;
+  height: 300px;
+  margin: 5px 0;
+  padding: 5px 0;
+  box-sizing: border-box;
+  font-size: 15px;
 }
