@@ -2,6 +2,7 @@
 .App {
   display: flex;
   flex-direction: row;
+  text-align: center;
   width: 600px;
   background: #eee;
   border: 1px solid #ddd;
@@ -12,11 +13,13 @@
 .mainArea {
   flex: 1;
   margin: 15px;
+  text-align: center;
 }
 
 .logArea {
   flex: 1;
   margin: 15px;
+  text-align: center;
 }
 
 /* Common */
@@ -27,6 +30,7 @@
   padding: 5px 0;
   box-sizing: border-box;
   font-size: 15px;
+  text-align: center;
 }
 
 .textArea {
@@ -37,4 +41,5 @@
   padding: 5px 0;
   box-sizing: border-box;
   font-size: 15px;
+  text-align: center;
 }
