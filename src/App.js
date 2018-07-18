@@ -13,7 +13,6 @@ import {
 } from './business/validateCommand-functions';
 
 import {
-  getNewPositionByPlace,
   getNewPositionByMove,
   getNewPositionByLeft,
   getNewPositionByRight,
@@ -58,12 +57,12 @@ class App extends Component {
     if (this.state.currentPosition.X === -1) {
 
       // PLACE command is needed
-      if (!validatePlaceCommand(newCommand)) {
+      newPosition = validatePlaceCommand(newCommand);
+      if (newPosition === undefined) {
         return;
       }
       
       // PLACE
-      newPosition = getNewPositionByPlace(newCommand);
       this.setState({ currentPosition: newPosition });
 
     } else {
@@ -78,11 +77,9 @@ class App extends Component {
         return;
       }
 
-      if (validatePlaceCommand(newCommand)) {
+      if (validatePlaceCommand(newCommand) !== undefined) {
         // PLACE
-        console.log('PLACE');
-        newPosition = getNewPositionByPlace(newCommand);
-        console.log(newPosition);
+        newPosition = validatePlaceCommand(newCommand);
       }
       else if (validateMoveCommand(newCommand)) {
         // MOVE

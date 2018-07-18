@@ -13,73 +13,97 @@ import {
 /* VALID CASES */
 test('PLACE 0,0,NORTH is a valid Place Command', () => {
     const result = validatePlaceCommand('PLACE 0,0,NORTH');
-    expect(result).toBe(true);
+    expect(result).toEqual(
+        {
+            X: 0,
+            Y: 0,
+            F: 'NORTH'
+        }
+    );
 });
 
 test('PLACE 4,5,SOUTH is a valid Place Command', () => {
     const result = validatePlaceCommand('PLACE 4,5,SOUTH');
-    expect(result).toBe(true);
+    expect(result).toEqual(
+        {
+            X: 4,
+            Y: 5,
+            F: 'SOUTH'
+        }
+    );
 });
 
 test('PLACE 5,4,WEST is a valid Place Command', () => {
     const result = validatePlaceCommand('PLACE 5,4,WEST');
-    expect(result).toBe(true);
+    expect(result).toEqual(
+        {
+            X: 5,
+            Y: 4,
+            F: 'WEST'
+        }
+    );
 });
 
 test('PLACE 5,5,EAST is a invalid Place Command', () => {
     const result = validatePlaceCommand('PLACE 5,5,EAST');
-    expect(result).toBe(true);
+    expect(result).toEqual(
+        {
+            X: 5,
+            Y: 5,
+            F: 'EAST'
+        }
+    );
 });
 
 /* INVALID CASES */
 test('PLACE  0,0,NORTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PLACE  0,0,NORTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 test('PlACE 0,0,NORTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PlACE 0,0,NORTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 test('PlACE 0,0,NoRTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PlACE 0,0,NoRTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 test('PLACE 0, 0,NORTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PLACE 0, 0,NORTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 test('PLACE -1,0,NORTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PLACE -1,0,NORTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 test('PLACE 0,-1,NORTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PLACE 0,-1,NORTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 test('PLACE 6,0,NORTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PLACE 6,0,NORTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 test('PLACE 0,6,NORTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PLACE 0,6,NORTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 test('PLACE 0.1,6,NORTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PLACE 0.1,6,NORTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 test('PLACE 1,2.3,NORTH is a invalid Place Command', () => {
     const result = validatePlaceCommand('PLACE 1,2.3,NORTH');
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
 /******************* */

@@ -3,36 +3,40 @@ export function validatePlaceCommand(command) {
     // Check PLACE command
     let arr = command.split(' ');
     if (arr.length !== 2)
-        return false;
+        return undefined;
 
     if (arr[0] !== "PLACE")
-        return false;
+        return undefined;
 
     // Check properties
     let arrProps = arr[1].split(",");
     if (arrProps.length !== 3)
-        return false;
+        return undefined;
 
     if (!isPositiveInteger(arrProps[0]))
-        return false;
+        return undefined;
 
     if (!isPositiveInteger(arrProps[1]))
-        return false;
+        return undefined;
 
     if (!validateXY(
         Number.parseInt(arrProps[0], 10)
     ))
-        return false;
+        return undefined;
 
     if (!validateXY(
         Number.parseInt(arrProps[1], 10)
     ))
-        return false;
+        return undefined;
 
     if (!validateF(arrProps[2]))
-        return false;
+        return undefined;
 
-    return true;
+    return {
+        X: Number.parseInt(arrProps[0], 10),
+        Y: Number.parseInt(arrProps[1], 10),
+        F: arrProps[2]
+    };
 }
 
 export function validatePosition(XYF_Obj) {
