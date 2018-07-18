@@ -5,8 +5,8 @@ import {
 export function getNewPositionByPlace(command) {
     let arrXYF = getArrayXYF(command);
     return {
-      X: arrXYF[0],
-      Y: arrXYF[1],
+      X: Number.parseInt(arrXYF[0], 10),
+      Y: Number.parseInt(arrXYF[1], 10),
       F: arrXYF[2],
     };
 }
@@ -59,14 +59,14 @@ export function getNewPositionByLeft(currentPlace) {
     {
         return {
             X: currentPlace.X,
-            Y: currentPlace.Y - 1,
+            Y: currentPlace.Y,
             F: "EAST"
         };
     }
     else if (currentPlace.F === "WEST")
     {
         return {
-            X: currentPlace.X - 1,
+            X: currentPlace.X,
             Y: currentPlace.Y,
             F: "SOUTH"
         };
@@ -74,7 +74,7 @@ export function getNewPositionByLeft(currentPlace) {
     else if (currentPlace.F === "EAST")
     {
         return {
-            X: currentPlace.X + 1,
+            X: currentPlace.X,
             Y: currentPlace.Y,
             F: "NORTH"
         };
@@ -94,14 +94,14 @@ export function getNewPositionByRight(currentPlace) {
     {
         return {
             X: currentPlace.X,
-            Y: currentPlace.Y - 1,
+            Y: currentPlace.Y,
             F: "WEST"
         };
     }
     else if (currentPlace.F === "WEST")
     {
         return {
-            X: currentPlace.X - 1,
+            X: currentPlace.X,
             Y: currentPlace.Y,
             F: "NORTH"
         };
@@ -109,7 +109,7 @@ export function getNewPositionByRight(currentPlace) {
     else if (currentPlace.F === "EAST")
     {
         return {
-            X: currentPlace.X + 1,
+            X: currentPlace.X,
             Y: currentPlace.Y,
             F: "SOUTH"
         };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { InputScreen, ReportScreen, LogScreen } from './components';
+import { InputField, ReportField, LogField } from './components';
 
 import {
   validatePlaceCommand,
@@ -114,17 +114,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <InputScreen
+        <InputField
           onChange={this._handleInputChange.bind(this)}
           onKeyPress={this._handleKeyPress.bind(this)}
           value={this.state.command}/>
         <br />
         <br />
-        <ReportScreen
+        <ReportField
           value={this.state.report}/>
         <br />
         <br />
-        <LogScreen
+        <LogField
           value={this.state.log}/>
       </div>
     );

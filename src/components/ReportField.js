@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ReportScreen = (props) => {
+const ReportField = (props) => {
     return (
         <div>
             <div>Output Report</div>
@@ -12,4 +12,4 @@ const ReportScreen = (props) => {
     )
 }
 
-export { ReportScreen };
+export { ReportField };

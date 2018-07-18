@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LogScreen = (props) => {
+const LogField = (props) => {
     return (
         <div>
             <div>Command History</div>
@@ -12,4 +12,4 @@ const LogScreen = (props) => {
     )
 }
 
-export { LogScreen };
+export { LogField };

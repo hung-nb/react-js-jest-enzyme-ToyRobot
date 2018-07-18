@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputScreen = (props) => {
+const InputField = (props) => {
     return (
         <div>
             <div>Input Commands</div>
@@ -15,4 +15,4 @@ const InputScreen = (props) => {
     )
 }
 
-export { InputScreen };
+export { InputField };

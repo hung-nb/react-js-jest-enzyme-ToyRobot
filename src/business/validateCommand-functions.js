@@ -14,10 +14,10 @@ export function validatePlaceCommand(command) {
     if (arrProps.length !== 3)
         return false;
 
-    if (!validateXY(arrProps[0]))
+    if (!validateXY(Number.parseInt(arrProps[0], 10)))
         return false;
 
-    if (!validateXY(arrProps[1]))
+    if (!validateXY(Number.parseInt(arrProps[1], 10)))
         return false;
 
     if (!validateF(arrProps[2]))
@@ -26,20 +26,20 @@ export function validatePlaceCommand(command) {
     return true;
 }
 
-export function validateXY(position) {
+export function validateXY(intPosition) {
 
-    // Check if number
-    if (!isPositiveInteger(position)) {
-        return false;
+    // // Check if number
+    // if (!isPositiveInteger(position)) {
+    //     return false;
+    // }
+
+    // // Check if number is from 0 to 5
+    // let intPosition = Number.parseInt(position, 10);
+    if (0 <= intPosition <= 5) {
+        return true;
     }
 
-    // Check if number is from 0 to 5
-    let intPosition = Number.parseInt(position, 10) + 1;
-    if (intPosition < 0 || intPosition > 5) {
-        return false;
-    }
-
-    return true;
+    return false;
 }
 
 export function validateF(direction) {
