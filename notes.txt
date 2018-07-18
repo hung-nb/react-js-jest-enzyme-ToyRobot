@@ -1,3 +1,5 @@
 npx create-react-app toy-robot
 cd toy-robot
 npm start
+
+npm test

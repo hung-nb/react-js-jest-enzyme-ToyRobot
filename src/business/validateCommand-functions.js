@@ -1,23 +1,32 @@
-import {
-    getArrayXYF,
-    isPositiveInteger,
-  } from './util-functions';
-
 export function validatePlaceCommand(command) {
 
     // Check PLACE command
-    if (command.substring(0, 6) !== "PLACE ")
+    let arr = command.split(' ');
+    if (arr.length !== 2)
+        return false;
+
+    if (arr[0] !== "PLACE")
         return false;
 
     // Check properties
-    let arrProps = getArrayXYF(command);
+    let arrProps = arr[1].split(",");
     if (arrProps.length !== 3)
         return false;
 
-    if (!validateXY(Number.parseInt(arrProps[0], 10)))
+    if (!isPositiveInteger(arrProps[0]))
         return false;
 
-    if (!validateXY(Number.parseInt(arrProps[1], 10)))
+    if (!isPositiveInteger(arrProps[1]))
+        return false;
+
+    if (!validateXY(
+        Number.parseInt(arrProps[0], 10)
+    ))
+        return false;
+
+    if (!validateXY(
+        Number.parseInt(arrProps[1], 10)
+    ))
         return false;
 
     if (!validateF(arrProps[2]))
@@ -26,37 +35,7 @@ export function validatePlaceCommand(command) {
     return true;
 }
 
-export function validateXY(intPosition) {
-
-    // // Check if number
-    // if (!isPositiveInteger(position)) {
-    //     return false;
-    // }
-
-    // // Check if number is from 0 to 5
-    // let intPosition = Number.parseInt(position, 10);
-    if (0 <= intPosition <= 5) {
-        return true;
-    }
-
-    return false;
-}
-
-export function validateF(direction) {
-    if (
-        direction !== "NORTH"    
-        && direction !== "SOUTH"    
-        && direction !== "WEST"    
-        && direction !== "EAST"
-
-    ) {    
-        return false;    
-    }
-
-    return true;
-}
-
-export function validatePlaceProps(XYF_Obj) {
+export function validatePosition(XYF_Obj) {
     
     if (!validateXY(XYF_Obj.X))
         return false;
@@ -70,26 +49,53 @@ export function validatePlaceProps(XYF_Obj) {
     return true;
 }
 
+function validateXY(intPosition) {
+    if (intPosition >= 0 && intPosition <= 5) {
+        return true;
+    }
+
+    return false;
+}
+
+function isPositiveInteger(str) {
+    var n = Math.floor(Number(str));
+    return n !== Infinity && String(n) === str && n >= 0;
+}
+
+function validateF(direction) {
+    if (
+        direction !== "NORTH"    
+        && direction !== "SOUTH"    
+        && direction !== "WEST"    
+        && direction !== "EAST"
+
+    ) {    
+        return false;    
+    }
+
+    return true;
+}
+
 export function validateMoveCommand(command) {
-    if (command.substring(0, command.length) !== "MOVE")
+    if (command !== "MOVE")
         return false;
     return true;
 }
 
 export function validateLeftCommand(command) {
-    if (command.substring(0, command.length) !== "LEFT")
+    if (command !== "LEFT")
         return false;
     return true;
 }
 
 export function validateRightCommand(command) {
-    if (command.substring(0, command.length) !== "RIGHT")
+    if (command !== "RIGHT")
         return false;
     return true;
 }
 
 export function validateReportCommand(command) {
-    if (command.substring(0, command.length) !== "REPORT")
+    if (command !== "REPORT")
         return false;
     return true;
 }

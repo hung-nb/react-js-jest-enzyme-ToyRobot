@@ -5,7 +5,7 @@ import { InputField, ReportField, LogField } from './components';
 
 import {
   validatePlaceCommand,
-  validatePlaceProps,
+  validatePosition,
   validateMoveCommand,
   validateLeftCommand,
   validateRightCommand,
@@ -98,7 +98,7 @@ class App extends Component {
       }
 
       // Update current position
-      if (validatePlaceProps(newPosition))
+      if (validatePosition(newPosition))
         this.setState({ currentPosition: newPosition });
     }
   }
