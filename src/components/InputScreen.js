@@ -8,7 +8,8 @@ const InputScreen = (props) => {
                 type="text"
                 placeholder = "Enter a command:"
                 onChange = {props.onChange}
-                onKeyPress={props.onKeyPress}>
+                onKeyPress={props.onKeyPress}
+                value={props.value}>
             </input>
         </div>
     )

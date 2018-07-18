@@ -10,14 +10,14 @@ import {
   validateLeftCommand,
   validateRightCommand,
   validateReportCommand,
-} from './business/validation-functions';
+} from './business/validateCommand-functions';
 
 import {
   getNewPositionByPlace,
   getNewPositionByMove,
   getNewPositionByLeft,
   getNewPositionByRight,
-} from './business/util-functions';
+} from './business/getPosition-functions';
 
 class App extends Component {
 
@@ -33,6 +33,7 @@ class App extends Component {
 		  },
       command: '',
       report: '',
+      log: '',
     }
   }
 
@@ -47,42 +48,51 @@ class App extends Component {
 		if (event.key !== 'Enter') {
       return;
     }
-    
-    // LAYOUT
 
+    // LAYOUT
+    let newCommand = this.state.command;
+    this._clearCommand();
 
     // LOGIC
     let newPosition = this.state.currentPosition;
     if (this.state.currentPosition.X === -1) {
-      
+
       // PLACE command is needed
-      if (!validatePlaceCommand(this.state.command)) {
+      if (!validatePlaceCommand(newCommand)) {
         return;
       }
       
       // PLACE
-      newPosition = getNewPositionByPlace(this.state.command);
+      newPosition = getNewPositionByPlace(newCommand);
       this.setState({ currentPosition: newPosition });
 
     } else {
 
-      if (validateReportCommand(this.state.command)) {
+      if (validateReportCommand(newCommand)) {
+        // REPORT
+        let reportTxt = 'Output: ' 
+          + this.state.currentPosition.X + ','
+          + this.state.currentPosition.Y + ','
+          + this.state.currentPosition.F;
+        this.setState({ report: reportTxt})
         return;
       }
 
-      if (validatePlaceCommand(this.state.command)) {
+      if (validatePlaceCommand(newCommand)) {
         // PLACE
-        newPosition = getNewPositionByPlace(this.state.command);
+        console.log('PLACE');
+        newPosition = getNewPositionByPlace(newCommand);
+        console.log(newPosition);
       }
-      else if (validateMoveCommand(this.state.command)) {
+      else if (validateMoveCommand(newCommand)) {
         // MOVE
         newPosition = getNewPositionByMove(this.state.currentPosition);
       }
-      else if (validateLeftCommand(this.state.command)) {
+      else if (validateLeftCommand(newCommand)) {
         // LEFT
         newPosition = getNewPositionByLeft(this.state.currentPosition);
       }
-      else if (validateRightCommand(this.state.command)) {
+      else if (validateRightCommand(newCommand)) {
         // RIGHT
         newPosition = getNewPositionByRight(this.state.currentPosition);
       }
@@ -92,6 +102,12 @@ class App extends Component {
         this.setState({ currentPosition: newPosition });
     }
   }
+
+  _clearCommand = () => {
+    let logTxt = this.state.log + '\n' + this.state.command;
+    this.setState({ command: '' });
+    this.setState({ log: logTxt });
+  }
   
   ////////////////////
   // VIEW CONTROLLER
@@ -100,13 +116,16 @@ class App extends Component {
       <div className="App">
         <InputScreen
           onChange={this._handleInputChange.bind(this)}
-          onKeyPress={this._handleKeyPress.bind(this)}/>
+          onKeyPress={this._handleKeyPress.bind(this)}
+          value={this.state.command}/>
         <br />
         <br />
-        <ReportScreen />
+        <ReportScreen
+          value={this.state.report}/>
         <br />
         <br />
-        <LogScreen value={this.state.command}/>
+        <LogScreen
+          value={this.state.log}/>
       </div>
     );
   }

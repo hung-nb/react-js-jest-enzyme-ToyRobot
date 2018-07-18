@@ -1,5 +1,6 @@
 import {
     getArrayXYF,
+    isPositiveInteger,
   } from './util-functions';
 
 export function validatePlaceCommand(command) {
@@ -21,17 +22,20 @@ export function validatePlaceCommand(command) {
 
     if (!validateF(arrProps[2]))
         return false;
+
+    return true;
 }
 
 export function validateXY(position) {
 
     // Check if number
-    if (!position.isInteger()) {
+    if (!isPositiveInteger(position)) {
         return false;
     }
 
     // Check if number is from 0 to 5
-    if (position < 0 || position > 5) {
+    let intPosition = Number.parseInt(position, 10) + 1;
+    if (intPosition < 0 || intPosition > 5) {
         return false;
     }
 

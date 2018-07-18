@@ -5,7 +5,8 @@ const ReportScreen = (props) => {
         <div>
             <div>Output Report</div>
             <input
-                type="text">
+                type="text"
+                value={props.value}>
             </input>
         </div>
     )
