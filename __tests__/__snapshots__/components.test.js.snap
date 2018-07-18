@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField should render correctly 1`] = `
+<div>
+  <div>
+    Input Commands
+  </div>
+  <input
+    className="input"
+    placeholder="Enter a command:"
+    type="text"
+    value="PLACE 1,2,SOUTH"
+  />
+</div>
+`;
+
+exports[`LogField should render correctly 1`] = `
+<div>
+  <div>
+    Input History
+  </div>
+  <textarea
+    className="textArea"
+    readOnly={true}
+    type="text"
+    value="PLACE 1,2,SOUTH"
+  />
+</div>
+`;
+
+exports[`ReportField should render correctly 1`] = `
+<div>
+  <div>
+    Output
+  </div>
+  <input
+    className="input"
+    readOnly={true}
+    type="text"
+    value="Output: 1,2,SOUTH"
+  />
+</div>
+`;
