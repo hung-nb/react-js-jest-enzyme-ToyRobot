@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import { InputScreen, ReportScreen, LogScreen } from './components';
+
 import {
   validatePlaceCommand,
   validatePlaceProps,
@@ -96,28 +98,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>Input Commands</div>
-        <input 
-          type="text"
-          placeholder = "Enter a command:"
-          onChange = {this._handleInputChange.bind(this)}
-          onKeyPress={this._handleKeyPress.bind(this)}
-          value={this.state.command}>
-        </input>
+        <InputScreen
+          onChange={this._handleInputChange.bind(this)}
+          onKeyPress={this._handleKeyPress.bind(this)}/>
         <br />
         <br />
-        <div>Output Report</div>
-        <input
-          type="text"
-          value={this.state.report}>
-        </input>
+        <ReportScreen />
         <br />
         <br />
-        <div>Logs</div>
-        <input
-          type="text"
-          value = {this.state.command}>
-        </input>
+        <LogScreen value={this.state.command}/>
       </div>
     );
   }
