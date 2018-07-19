@@ -3,7 +3,7 @@
 exports[`InputField should render correctly 1`] = `
 <div>
   <div>
-    Input Commands
+    Input
   </div>
   <input
     className="input"

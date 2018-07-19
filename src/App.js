@@ -50,7 +50,7 @@ class App extends Component {
 
     // LOGIC
     let newPosition = this.state.currentPosition;
-    if (this.state.currentPosition.X === -1) {
+    if (newPosition.X === -1) {
 
       // PLACE command is needed
       newPosition = validatePlaceCommand(newCommand);
@@ -66,9 +66,9 @@ class App extends Component {
       if (validateReportCommand(newCommand)) {
         // REPORT
         let reportTxt = 'Output: ' 
-          + this.state.currentPosition.X + ','
-          + this.state.currentPosition.Y + ','
-          + this.state.currentPosition.F;
+          + newPosition.X + ','
+          + newPosition.Y + ','
+          + newPosition.F;
         this.setState({ report: reportTxt})
         return;
       }
@@ -79,15 +79,15 @@ class App extends Component {
       }
       else if (validateMoveCommand(newCommand)) {
         // MOVE
-        newPosition = getNewPositionByMove(this.state.currentPosition);
+        newPosition = getNewPositionByMove(newPosition);
       }
       else if (validateLeftCommand(newCommand)) {
         // LEFT
-        newPosition = getNewPositionByLeft(this.state.currentPosition);
+        newPosition = getNewPositionByLeft(newPosition);
       }
       else if (validateRightCommand(newCommand)) {
         // RIGHT
-        newPosition = getNewPositionByRight(this.state.currentPosition);
+        newPosition = getNewPositionByRight(newPosition);
       }
 
       // Update current position
