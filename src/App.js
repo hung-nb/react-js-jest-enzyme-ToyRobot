@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-
 import { InputField, ReportField, LogField } from './components';
-
 import {
   validatePlaceCommand,
   validatePosition,
@@ -11,7 +8,6 @@ import {
   validateRightCommand,
   validateReportCommand,
 } from './business/validateCommand-functions';
-
 import {
   getNewPositionByMove,
   getNewPositionByLeft,
@@ -100,7 +96,7 @@ class App extends Component {
     }
   }
 
-  _clearCommand = () => {
+  _clearCommand() {
     let logTxt = this.state.log + '\n' + this.state.command;
     this.setState({ command: '' });
     this.setState({ log: logTxt });
@@ -113,6 +109,7 @@ class App extends Component {
       <div className="App">
         <div className='mainArea'>
           <InputField
+            id="id_input"
             onChange={this._handleInputChange.bind(this)}
             onKeyPress={this._handleKeyPress.bind(this)}
             value={this.state.command}/>
