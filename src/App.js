@@ -98,7 +98,7 @@ class App extends Component {
 
   _clearCommand() {
     let logTxt = this.state.log + '\n' + this.state.command;
-    this.setState({ command: '' });
+    this.setState({ command: '', report: '' });
     this.setState({ log: logTxt });
   }
   
