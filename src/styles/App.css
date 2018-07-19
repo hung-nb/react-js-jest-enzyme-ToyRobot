@@ -2,9 +2,9 @@
 .App {
   display: flex;
   flex-direction: row;
-  text-align: center;
+  align-items: center;
   width: 600px;
-  background: #eee;
+  background:#ddd;
   border: 1px solid #ddd;
   padding: 10px;
   margin: 20px auto;
@@ -31,6 +31,7 @@
   box-sizing: border-box;
   font-size: 15px;
   text-align: center;
+  font-weight: bold;
 }
 
 .textArea {

@@ -3,7 +3,7 @@ import React from 'react'
 const InputField = (props) => {
     return (
         <div>
-            <div>Input Commands</div>
+            <div>Input</div>
             <input
                 className="input"
                 type="text"
