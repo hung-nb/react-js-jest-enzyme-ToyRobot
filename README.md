@@ -7,6 +7,8 @@
  - react js
  - jest
  - enzyme
+
+## Screen shot
  ![alt text](https://github.com/hung-nb/toy-robot/blob/master/Screen%20Shot%202018-08-03%20at%209.52.23%20pm.png)
 
 ## To run the app locally:
